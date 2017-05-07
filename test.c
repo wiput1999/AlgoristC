@@ -85,13 +85,6 @@ int main() {
 	//printf("%f\n", area(8,2,4,5,5,3));
 	//printf("%f\n", distance(0,0,10,10));
 	
-	//for(int i = 0; i <= 20; i++) {
-	//	if (i % 3 == 0 && i % 5 == 0) printf("Fizz Buzz\n");
-	//	else if (i % 3 == 0) printf("Fizz\n");
-	//	else if (i % 5 == 0) printf("Buzz\n");
-	//	else printf("%d\n", i);
-	//}
-	
 	
 	int n;
 	scanf("%d", &n);
