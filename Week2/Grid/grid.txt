@@ -1,0 +1,5 @@
+4
+A B X Y
+C F G I
+J M N A
+Z X Y G
