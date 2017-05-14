@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 char text[10] = "AA_BB";
 char final[10] = "BB_AA";
@@ -7,6 +8,7 @@ int rear = 1;
 int space_loc;
 char w[100][10];
 char w_parent[10000];
+char buffer[100];
 
 void swap(char *p,char *q) {
     char t = *p;
@@ -16,29 +18,40 @@ void swap(char *p,char *q) {
 
 int main() {
 
-    for(int i = 0; i < 5; i++) {
-        if(text[i] == '_') {
-            space_loc = i;
+    // w[0] = text;
+    w_parent[0] = -1;
+    strcpy(w[0], &text);
+
+    while(1) {
+
+        for(int i = 0; i < 5; i++) {
+            if(text[i] == '_') {
+                space_loc = i;
+                break;
+            }
+        }
+
+        if(strcmp(&text, "BB_AA") == 0) {
+            printf("Finished!\n");
             break;
         }
+
+
+        strcpy(buffer, &text[front]);
+        swap(&buffer[space_loc], &buffer[space_loc - 1]);
+        for(int i = 0; i <= rear; i++) {
+            if(strcmp(buffer,&w[i]) != 0) {
+                rear++;
+                strcpy(buffer, &w[rear]);
+                break;
+            }
+        }
+
+        front++;
     }
+    
 
-    // w[0] = text;
-    // w_parent[0] = -1;
-
-    // while(1) {
-    //     if(text == "BB_AA") {
-    //         printf("Finished!");
-    //         break;
-    //     }
-
-    //     text = "BB_AA"
-
-    //     front++;
-    // }
-    swap(&text[1], &text[2]);
-
-    printf("%s", text); 
+    printf("%s\n", text); 
 
     return 0;
 }
