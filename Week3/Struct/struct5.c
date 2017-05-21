@@ -1,4 +1,4 @@
-//Stack
+//Heap
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -21,11 +21,12 @@ int compare(const void * a, const void * b) {
 }
 
 int main() {
-    struct student S[100];
+    struct student *S;
     char buffer[100];
     int n;
     
     scanf("%d", &n);
+    S = malloc(n * sizeof(struct student));
     for(int i = 0; i < n; i++ ) {
         scanf("%s", buffer);
         strcpy(S[i].name, buffer);
